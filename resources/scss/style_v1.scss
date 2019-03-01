@@ -1,0 +1,304 @@
+$dark-blue: rgb(54, 54, 54);
+$grey: rgb(151, 151, 151);
+$grey-light: rgb(226, 226, 226);
+$carrot-orange: #e67e22;
+$border-gen: 10px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//Creates a standard size of font from the start, gives us the oppurtunity to work with %. The overflow-x makes sure we can scroll over the x-axis.
+
+html,
+body {
+  background-color: #fff;
+  color: rgb(68, 68, 68);
+
+  font-family: 'Lato', 'Arial', 'sans-serif';
+  font-size: 18px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: $dark-blue;
+}
+
+.page-wrapper {
+  width: 60%;
+  margin-left: 420px;
+  padding: 0 20px;
+}
+
+abbr {
+  text-decoration: none;
+  border-bottom: 0px;
+}
+
+.intro {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 120%;
+    padding: 60px 30px;
+
+    background: $dark-blue;
+    border-radius: $border-gen;
+  }
+  header h1 {
+    color: white;
+    border-bottom: 3px solid $carrot-orange;
+    text-align: center;
+    padding: 10px 10px;
+    margin-right: 40px;
+  }
+
+  header h1::before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f06c';
+    color: $carrot-orange;
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    margin-right: 10px;
+  }
+
+  header h2 {
+    font-size: 80%;
+    text-align: center;
+    color: $carrot-orange;
+    border-top: 3px solid white;
+    padding: 10px 0px;
+  }
+
+  .summary {
+    display: flex;
+    align-items: center;
+    height: 150px;
+    font-size: 80%;
+    background: rgb(151, 151, 151);
+    border-radius: $border-gen;
+
+    p:first-child {
+      margin: auto;
+      margin-left: 20px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 108%;
+      width: 40%;
+    }
+    p:last-child {
+      margin-right: 20px;
+      color: $grey;
+      position: relative;
+      display: flex;
+      height: 100%;
+      width: 40%;
+
+      text-transform: uppercase;
+      font-size: 120%;
+
+      border-radius: 15px;
+
+      a:first-child:visited,
+      a:first-child:link {
+        background: $carrot-orange;
+        color: #fff;
+
+        position: absolute;
+
+        right: 0px;
+        top: 7px;
+
+        text-align: center;
+        padding: 20px 0;
+        width: 100%;
+        border-radius: $border-gen;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+
+      a:first-child:hover,
+      a:first-child:active {
+        background-color: #d37727;
+      }
+
+      a:last-child:visited,
+      a:last-child:link {
+        background: $carrot-orange;
+        color: #fff;
+
+        position: absolute;
+
+        right: 0px;
+        top: 78px;
+
+        text-align: center;
+        padding: 20px 0;
+        width: 100%;
+        border-radius: $border-gen;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+      a:last-child:hover,
+      a:last-child:active {
+        background-color: #d37727;
+      }
+    }
+  }
+
+  .preamble {
+    padding: 30px 20px 30px 20px;
+    border-radius: $border-gen;
+    background-color: $grey-light;
+    line-height: 22px;
+    h3 {
+      font-size: 140%;
+      color: $carrot-orange;
+      margin-bottom: 20px;
+    }
+    h3:after {
+      display: block;
+      height: 3px;
+      width: 70%;
+      background: #fff;
+      content: '';
+      margin: 0 0;
+      margin-top: 15px;
+    }
+  }
+}
+
+%text-section {
+  padding: 30px 20px 30px 20px;
+  line-height: 22px;
+  border-radius: $border-gen;
+  background-color: $grey;
+}
+%text-h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 140%;
+}
+%text-h3-aft {
+  display: block;
+  height: 3px;
+  width: 70%;
+  background: #fff;
+  content: '';
+  margin: 0 0;
+  margin-top: 15px;
+}
+
+.main {
+  .explanation {
+    @extend %text-section;
+    color: #fff;
+    h3 {
+      @extend %text-h3;
+    }
+    h3:after {
+      @extend %text-h3-aft;
+      background-color: $carrot-orange;
+    }
+  }
+  .participation {
+    @extend %text-section;
+    background-color: $grey-light;
+    h3 {
+      color: $carrot-orange;
+      @extend %text-h3;
+    }
+    h3:after {
+      @extend %text-h3-aft;
+    }
+  }
+
+  .benefits {
+    @extend %text-section;
+    color: #fff;
+    h3 {
+      @extend %text-h3;
+    }
+    h3:after {
+      @extend %text-h3-aft;
+      background-color: $carrot-orange;
+    }
+  }
+
+  .requirements {
+    @extend %text-section;
+    background-color: $grey-light;
+    h3 {
+      color: $carrot-orange;
+      @extend %text-h3;
+    }
+    h3:after {
+      @extend %text-h3-aft;
+    }
+  }
+}
+
+footer {
+  background-color: $dark-blue;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  a {
+    color: white;
+    font-size: 80%;
+    margin: auto;
+  }
+}
+
+%li-side {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f0a9';
+  color: $carrot-orange;
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+}
+
+.sidebar {
+  color: white;
+  width: 31%;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 22px;
+  a {
+    color: rgb(255, 255, 255);
+  }
+
+  .design-selection,
+  .design-archives,
+  .zen-resources {
+    border-radius: $border-gen;
+    background-color: $dark-blue;
+    font-size: 80%;
+    line-height: 30px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+
+    li:before {
+      @extend %li-side;
+    }
+
+    h3 {
+      font-size: 150%;
+      padding: 10px 10px 10px 20px;
+      color: $carrot-orange;
+    }
+  }
+}
+
+@import '/vendors/css/all.css';

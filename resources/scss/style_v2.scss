@@ -1,0 +1,285 @@
+$dark-blue: #3b5998;
+$grey: rgb(151, 151, 151);
+$grey-light: rgb(226, 226, 226);
+$carrot-orange: #e67e22;
+$border-gen: 0px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//Creates a standard size of font from the start, gives us the oppurtunity to work with %. The overflow-x makes sure we can scroll over the x-axis.
+
+html,
+body {
+  background-color: #fff;
+  color: rgb(68, 68, 68);
+
+  font-family: 'Lato', 'Arial', 'sans-serif';
+  font-size: 18px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: $dark-blue;
+}
+
+.page-wrapper {
+  width: 100%;
+  margin: auto;
+}
+
+abbr {
+  text-decoration: none;
+  border-bottom: 0px;
+}
+
+.intro {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 120%;
+    background: $dark-blue;
+  }
+  header h1 {
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    border-bottom: 3px solid white;
+  }
+
+  header h2 {
+    font-size: 80%;
+    text-align: center;
+    color: #fff;
+    font-weight: 100;
+
+    padding: 10px 0px;
+  }
+
+  .summary {
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    font-size: 80%;
+    border-radius: $border-gen;
+
+    p:first-child {
+      text-align: center;
+      background: rgb(238, 238, 238);
+      padding: 20px 0;
+      font-weight: bold;
+      font-size: 108%;
+      width: 100%;
+    }
+    p:last-child {
+      margin-right: 20px;
+      color: #fff;
+      position: relative;
+      width: 100%;
+      height: 100px;
+      text-transform: uppercase;
+      font-size: 120%;
+
+      border-radius: 15px;
+
+      a:first-child:visited,
+      a:first-child:link {
+        background: $carrot-orange;
+        color: #fff;
+        width: 50%;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+
+        text-align: center;
+        padding: 20px 0;
+
+        border-radius: $border-gen;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+
+      a:first-child:hover,
+      a:first-child:active {
+        background-color: #d37727;
+      }
+
+      a:last-child:visited,
+      a:last-child:link {
+        background: $carrot-orange;
+        color: #fff;
+        width: 50%;
+        position: absolute;
+
+        left: 0px;
+        top: 0px;
+
+        text-align: center;
+        padding: 20px 0;
+
+        border-radius: $border-gen;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+      a:last-child:hover,
+      a:last-child:active {
+        background-color: #d37727;
+      }
+    }
+  }
+
+  .preamble {
+    padding: 60px 20px 30px 20px;
+    border-radius: $border-gen;
+    line-height: 22px;
+    h3 {
+      font-size: 140%;
+      color: $dark-blue;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+%text-section {
+  width: 46%;
+  line-height: 22px;
+  border-radius: $border-gen;
+  background-color: $grey;
+  padding: 10px 20px 10px 20px;
+}
+%text-h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 140%;
+}
+%text-h3-aft {
+  display: block;
+  height: 3px;
+  width: 70%;
+  background: #fff;
+  content: '';
+  margin: 0 0;
+  margin-top: 15px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  :last-child {
+    flex-wrap: nowrap;
+  }
+
+  .explanation {
+    @extend %text-section;
+    color: #fff;
+    h3 {
+      @extend %text-h3;
+    }
+    h3:after {
+      @extend %text-h3-aft;
+      background-color: $carrot-orange;
+    }
+  }
+  .participation {
+    @extend %text-section;
+    background-color: $grey-light;
+    h3 {
+      color: $carrot-orange;
+      @extend %text-h3;
+    }
+    h3:after {
+      @extend %text-h3-aft;
+    }
+  }
+
+  .benefits {
+    @extend %text-section;
+    background-color: $grey-light;
+
+    h3 {
+      @extend %text-h3;
+      color: $carrot-orange;
+    }
+    h3:after {
+      @extend %text-h3-aft;
+      background-color: #fff;
+    }
+  }
+
+  .requirements {
+    @extend %text-section;
+
+    h3 {
+      color: #fff;
+      @extend %text-h3;
+    }
+    h3:after {
+      @extend %text-h3-aft;
+      background-color: $carrot-orange;
+    }
+  }
+}
+
+footer {
+  background-color: $dark-blue;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  a {
+    color: white;
+    font-size: 80%;
+    margin: auto;
+  }
+}
+
+%li-side {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f0a9';
+  color: $carrot-orange;
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+}
+
+.sidebar {
+  color: white;
+  z-index: 1;
+  top: 50px;
+  left: 22px;
+  a {
+    color: rgb(255, 255, 255);
+  }
+
+  .design-selection,
+  .design-archives,
+  .zen-resources {
+    border-radius: $border-gen;
+    background-color: $dark-blue;
+    font-size: 80%;
+    line-height: 30px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+
+    li:before {
+      @extend %li-side;
+    }
+
+    h3 {
+      font-size: 150%;
+      padding: 10px 10px 10px 20px;
+      color: $carrot-orange;
+    }
+  }
+}
+
+@import '/vendors/css/all.css';
